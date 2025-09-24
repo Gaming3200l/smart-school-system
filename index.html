@@ -6,20 +6,16 @@
   <title>Login OSIS</title>
   <link rel="stylesheet" href="style.css">
 </head>
-<body>
-  <h2>Login Sistem OSIS</h2>
-  <form id="login-form">
-    <label for="username">ID Anggota:</label>
-    <input type="text" id="username" placeholder="Contoh: KETUA01" required>
-    
-    <label for="password">Password:</label>
-    <input type="password" id="password" required>
-    
-    <button type="submit">Login</button>
-  </form>
-
-  <p id="login-msg"></p>
-
+<body class="login-page">
+  <div class="login-container">
+    <h2>Login OSIS</h2>
+    <form onsubmit="return loginUser(event)">
+      <input type="text" id="username" placeholder="Username" required>
+      <input type="password" id="password" placeholder="Password" required>
+      <button type="submit">Masuk</button>
+    </form>
+    <p>Belum punya akun? <a href="#">Hubungi Admin</a></p>
+  </div>
   <script src="script.js"></script>
 </body>
 </html>
