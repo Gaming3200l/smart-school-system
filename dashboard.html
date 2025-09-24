@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard OSIS</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h2>Dashboard OSIS</h2>
+  <p id="welcome-msg"></p>
+  
+  <h3>📋 Daftar Rapat</h3>
+  <ul id="rapat-list">
+    <li>Rapat 1 - 01/10/2025 - Ruang OSIS</li>
+    <li>Rapat 2 - 10/10/2025 - Aula Sekolah</li>
+  </ul>
+
+  <div id="sekretaris-section" style="display:none;">
+    <h3>✍️ Upload Hasil Rapat</h3>
+    <textarea id="notulen" rows="5" placeholder="Tulis hasil rapat di sini..."></textarea><br>
+    <button onclick="simpanNotulen()">Simpan</button>
+  </div>
+
+  <h3>✅ Absensi</h3>
+  <table border="1" style="width:100%; text-align:center;">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Jabatan</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="anggota-body"></tbody>
+  </table>
+
+  <button onclick="logout()">Logout</button>
+
+  <script src="script.js"></script>
+</body>
+</html>
