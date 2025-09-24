@@ -3,42 +3,28 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Smart School System - SMK 3 Palu</title>
+  <title>Absensi OSIS SMK 3 Palu</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <h1>Smart School System</h1>
-    <nav>
-      <a href="#jadwal">Jadwal</a>
-      <a href="#absensi">Absensi</a>
-      <a href="#pengumuman">Pengumuman</a>
-    </nav>
-  </header>
+  <h1>Absensi OSIS SMK 3 Palu</h1>
+  
+  <button onclick="startScan()">Mulai Scan QR</button>
+  <div id="reader" style="width:300px;"></div>
+  
+  <h2>Daftar Anggota</h2>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nama</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody id="anggotaTable"></tbody>
+  </table>
 
-  <main>
-    <section id="jadwal">
-      <h2>📅 Jadwal Pelajaran</h2>
-      <p>Contoh: Senin - Matematika, IPA, Bahasa Indonesia</p>
-    </section>
-
-    <section id="absensi">
-      <h2>✅ Absensi Siswa</h2>
-      <input type="text" id="nama" placeholder="Masukkan nama">
-      <button onclick="absen()">Absen</button>
-      <ul id="daftar-absensi"></ul>
-    </section>
-
-    <section id="pengumuman">
-      <h2>📢 Pengumuman</h2>
-      <p>Ujian Tengah Semester dimulai tanggal 10 Oktober 2025.</p>
-    </section>
-  </main>
-
-  <footer>
-    <p>© 2025 SMK 3 Palu</p>
-  </footer>
-
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
   <script src="script.js"></script>
 </body>
-  </html>
+</html>
