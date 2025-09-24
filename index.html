@@ -3,30 +3,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Absensi OSIS</title>
+  <title>Login OSIS</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Absensi Anggota OSIS</h2>
-
-  <form id="absen-form">
-    <label for="idAnggota">Masukkan ID Anggota:</label>
-    <input type="text" id="idAnggota" placeholder="Contoh: OSIS003" required>
-    <button type="submit">Absen</button>
+  <h2>Login Sistem OSIS</h2>
+  <form id="login-form">
+    <label for="username">ID Anggota:</label>
+    <input type="text" id="username" placeholder="Contoh: KETUA01" required>
+    
+    <label for="password">Password:</label>
+    <input type="password" id="password" required>
+    
+    <button type="submit">Login</button>
   </form>
 
-  <table border="1" style="margin-top:20px; width:100%; text-align:center;">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nama</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody id="anggota-body">
-      <!-- data muncul dari script.js -->
-    </tbody>
-  </table>
+  <p id="login-msg"></p>
 
   <script src="script.js"></script>
 </body>
