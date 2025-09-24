@@ -1,3 +1,17 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Absensi OSIS SMK 3 Palu</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Absensi OSIS SMK 3 Palu</h1>
+  
+  <button onclick="startScan()">Mulai Scan QR</button>
+  <div id="reader" style="width:300px;"></div>
+  
 <h2>Absensi Anggota OSIS</h2>
 <button onclick="scanQR()">Scan QR</button>
 
@@ -13,3 +27,8 @@
     <!-- Data anggota akan muncul otomatis dari script.js -->
   </tbody>
 </table>
+
+  <script src="https://unpkg.com/html5-qrcode" type="text/javascript"></script>
+  <script src="script.js"></script>
+</body>
+</html>
