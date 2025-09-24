@@ -1,27 +1,14 @@
 body {
   font-family: Arial, sans-serif;
-  text-align: center;
-  background: #f9f9f9;
+  margin: 20px;
 }
 
-h1 {
-  color: #2c3e50;
+form {
+  margin-bottom: 20px;
 }
 
-table {
-  margin: 20px auto;
-  border-collapse: collapse;
-  width: 80%;
-  background: #fff;
-  box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-
-th, td {
-  padding: 10px;
-  border: 1px solid #ccc;
-}
-
-th {
-  background: #2980b9;
-  color: white;
+input, button, textarea {
+  margin: 5px 0;
+  padding: 8px;
+  width: 100%;
 }
