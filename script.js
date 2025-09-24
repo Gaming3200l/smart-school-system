@@ -1,40 +1,48 @@
-// Data akun OSIS
-const users = [
-  { id: "KETUA01", nama: "Andi Saputra", jabatan: "Ketua OSIS", password: "12345" },
-  { id: "WAKET01", nama: "Budi Santoso", jabatan: "Wakil Ketua", password: "12345" },
-  { id: "SEKRE01", nama: "Citra Dewi", jabatan: "Sekretaris", password: "12345" },
-  { id: "WSEKR01", nama: "Dinda Rahma", jabatan: "Wakil Sekretaris", password: "12345" },
-  { id: "BENDA01", nama: "Eko Pratama", jabatan: "Bendahara", password: "12345" },
-  { id: "WBEND01", nama: "Farhan Putra", jabatan: "Wakil Bendahara", password: "12345" },
-  { id: "KSDTIK01", nama: "Dede Satrio", jabatan: "Ketua Sekbid 4 TIK", password: "12345" },
-  { id: "ANGSB01", nama: "Hari Saputra", jabatan: "Anggota", password: "12345" },
-  { id: "ANG003", nama: "Intan Wulandari", jabatan: "Anggota", password: "12345" }
-];
-
-// Simpan login ke localStorage
-function login(event) {
+// === LOGIN FUNCTION ===
+function loginUser(event) {
   event.preventDefault();
-  const id = document.getElementById("username").value;
-  const pass = document.getElementById("password").value;
 
-  const user = users.find(u => u.id === id && u.password === pass);
+  const username = document.getElementById("username").value;
+  const password = document.getElementById("password").value;
 
-  if (user) {
-    localStorage.setItem("user", JSON.stringify(user));
+  // Contoh sederhana (username: admin, password: 1234)
+  if (username === "admin" && password === "1234") {
+    // Simpan status login
+    localStorage.setItem("isLoggedIn", "true");
     window.location.href = "dashboard.html";
   } else {
-    document.getElementById("login-msg").textContent = "Login gagal! Periksa ID & Password.";
+    alert("Username atau password salah!");
+  }
+  return false;
+}
+
+// === LOGOUT FUNCTION ===
+function logoutUser() {
+  localStorage.removeItem("isLoggedIn");
+}
+
+// === CEK LOGIN ===
+if (window.location.pathname.includes("dashboard.html")) {
+  const isLoggedIn = localStorage.getItem("isLoggedIn");
+  if (isLoggedIn !== "true") {
+    window.location.href = "login.html";
   }
 }
 
-// Tampilkan data dashboard
-function loadDashboard() {
-  const user = JSON.parse(localStorage.getItem("user"));
-  if (!user) {
-    window.location.href = "index.html";
-    return;
-  }
+// === MENU TOGGLE (mobile) ===
+function toggleMenu() {
+  document.getElementById("menu").classList.toggle("show");
+}
 
+// === GANTI HALAMAN ===
+function showSection(id) {
+  let sections = document.querySelectorAll(".content");
+  sections.forEach(sec => sec.classList.remove("active"));
+  document.getElementById(id).classList.add("active");
+
+  // Tutup menu otomatis setelah pilih (mobile)
+  document.getElementById("menu").classList.remove("show");
+}
   document.getElementById("welcome-msg").textContent = 
     `Selamat datang, ${user.nama} (${user.jabatan})`;
 
