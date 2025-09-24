@@ -7,11 +7,10 @@ const anggotaOSIS = [
   { id: "OSIS005", nama: "Eko Pratama" }
 ];
 
-// Tampilkan daftar anggota ke tabel
+// Tampilkan tabel anggota
 function loadAnggota() {
   const tbody = document.getElementById("anggota-body");
   tbody.innerHTML = "";
-
   anggotaOSIS.forEach((a) => {
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -23,34 +22,29 @@ function loadAnggota() {
   });
 }
 
-// Fungsi untuk update status hadir berdasarkan hasil scan QR
+// Fungsi tandai hadir
 function tandaiHadir(idAnggota) {
   const anggota = anggotaOSIS.find(a => a.id === idAnggota);
   if (anggota) {
     const statusCell = document.getElementById(`status-${anggota.id}`);
-    if (statusCell) {
+    if (statusCell.textContent.includes("Hadir")) {
+      alert(`${anggota.nama} sudah absen sebelumnya.`);
+    } else {
       statusCell.textContent = "Hadir ✅";
       statusCell.style.color = "green";
     }
   } else {
-    alert("ID tidak dikenal: " + idAnggota);
+    alert("ID tidak dikenal!");
   }
 }
 
-// Fungsi simulasi scan QR (sementara tombol input manual)
-function scanQR() {
-  const input = prompt("Masukkan kode QR (contoh: OSIS001)");
-  if (input) {
-    tandaiHadir(input.trim());
-  }
-}
+// Event listener form absen
+document.getElementById("absen-form").addEventListener("submit", function(e) {
+  e.preventDefault();
+  const idInput = document.getElementById("idAnggota").value.trim();
+  tandaiHadir(idInput);
+  document.getElementById("idAnggota").value = "";
+});
 
-// Jalankan saat halaman dibuka
-window.onload = loadAnggota;        alert("ID tidak dikenal!");
-      }
-      html5QrCode.stop(); // stop setelah scan 1 orang
-    }
-  ).catch(err => {
-    console.error("Scan gagal", err);
-  });
-}
+// Jalankan saat halaman pertama kali dibuka
+window.onload = loadAnggota;
