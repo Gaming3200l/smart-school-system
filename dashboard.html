@@ -7,34 +7,55 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h2>Dashboard OSIS</h2>
-  <p id="welcome-msg"></p>
-  
-  <h3>📋 Daftar Rapat</h3>
-  <ul id="rapat-list">
-    <li>Rapat 1 - 01/10/2025 - Ruang OSIS</li>
-    <li>Rapat 2 - 10/10/2025 - Aula Sekolah</li>
-  </ul>
+  <!-- Header -->
+  <header>
+    <div class="logo">OSIS Dashboard</div>
+    <nav id="menu">
+      <a href="#" onclick="showSection('home')">Home</a>
+      <a href="#" onclick="showSection('anggota')">List Anggota</a>
+      <a href="#" onclick="showSection('rapat')">Hasil Rapat</a>
+      <a href="#" onclick="showSection('jadwal')">Jadwal Kegiatan</a>
+      <a href="login.html" onclick="logoutUser()">Logout</a>
+    </nav>
+    <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+  </header>
 
-  <div id="sekretaris-section" style="display:none;">
-    <h3>✍️ Upload Hasil Rapat</h3>
-    <textarea id="notulen" rows="5" placeholder="Tulis hasil rapat di sini..."></textarea><br>
-    <button onclick="simpanNotulen()">Simpan</button>
-  </div>
+  <!-- Konten -->
+  <main>
+    <section id="home" class="content active">
+      <h1>Selamat Datang di Dashboard OSIS</h1>
+      <p>Pilih menu untuk melihat informasi OSIS.</p>
+    </section>
 
-  <h3>✅ Absensi</h3>
-  <table border="1" style="width:100%; text-align:center;">
-    <thead>
-      <tr>
-        <th>ID</th>
-        <th>Nama</th>
-        <th>Jabatan</th>
-        <th>Status</th>
-      </tr>
-    </thead>
-    <tbody id="anggota-body"></tbody>
-  </table>
+    <section id="anggota" class="content">
+      <h1>List Anggota OSIS</h1>
+      <ul>
+        <li>Ketua: …</li>
+        <li>Wakil Ketua: …</li>
+        <li>Sekretaris: …</li>
+        <li>Wakil Sekretaris: …</li>
+        <li>Bendahara: …</li>
+        <li>Wakil Bendahara: …</li>
+        <li>Anggota lainnya: …</li>
+      </ul>
+    </section>
 
+    <section id="rapat" class="content">
+      <h1>Hasil Rapat</h1>
+      <p>📌 Rapat 1: …</p>
+      <p>📌 Rapat 2: …</p>
+    </section>
+
+    <section id="jadwal" class="content">
+      <h1>Jadwal Kegiatan</h1>
+      <p>📅 25 Sept: Persiapan acara sekolah</p>
+      <p>📅 30 Sept: Rapat evaluasi</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
   <button onclick="logout()">Logout</button>
 
   <script src="script.js"></script>
